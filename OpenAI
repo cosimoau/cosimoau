@@ -1,0 +1,16 @@
+HOST, cdn.auth0.com, OpenAI
+HOST, openaiapi-site.azureedge.net, OpenAI
+HOST-SUFFIX, ai.com, OpenAI
+HOST-SUFFIX, openai.com, OpenAI
+HOST-SUFFIX, vimeo.com, OpenAI
+HOST-SUFFIX, vimeocdn.com, OpenAI
+HOST-SUFFIX, hcaptcha.com, OpenAI
+HOST-SUFFIX, akamaized.com, OpenAI
+
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,chat.openai.com
+DOMAIN-SUFFIX,challenges.cloudflare.com
+DOMAIN-SUFFIX,auth0.openai.com
+DOMAIN-SUFFIX,platform.openai.com
+# Add ai.com
+DOMAIN-SUFFIX,ai.com
