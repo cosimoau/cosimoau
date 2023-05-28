@@ -1,7 +1,9 @@
-HOST-SUFFIX, ai.com, OpenAI
-HOST-SUFFIX, openai.com, OpenAI
-HOST-SUFFIX, challenges.cloudflare.com, OpenAI
-
-DOMAIN-SUFFIX, openai.com, OpenAI
-DOMAIN-SUFFIX, ai.com, OpenAI
-DOMAIN-SUFFIX, challenges.cloudflare.com, OpenAI
+# 内容：OpenAi
+# 数量：6条
+DOMAIN-KEYWORD,openai
+DOMAIN-SUFFIX,ai.com
+DOMAIN-SUFFIX,challenges.cloudflare.com
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,openaiapi-site.azureedge.net
+DOMAIN-SUFFIX,stripe.com
+DOMAIN-SUFFIX,sentry.io
