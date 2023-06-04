@@ -1,2 +1,3 @@
-DOMAIN-SUFFIX, palm.telegraherbot.workers.dev
-DOMAIN-SUFFIX, makersuite.google.com
+- DOMAIN-SUFFIX,palm.telegraherbot.workers.dev,PaLM
+- DOMAIN-SUFFIX,makersuite.google.com,PaLM
+
