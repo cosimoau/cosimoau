@@ -1,1 +1,4 @@
-DOMAIN-KEYWORD,channel4, All4
+USER-AGENT,All4*
+DOMAIN-KEYWORD,channel4.com, All4
+DOMAIN-KEYWORD,c4assets.com
+DOMAIN-KEYWORD,channel4.com
