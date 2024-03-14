@@ -1,19 +1,23 @@
 # 内容：OpenAi
 # 数量：10条
-DOMAIN-KEYWORD,openai
-DOMAIN-SUFFIX,ai.com
-DOMAIN-SUFFIX,challenges.cloudflare.com
-DOMAIN-SUFFIX,openai.com
-DOMAIN-SUFFIX,openaiapi-site.azureedge.net
-DOMAIN-SUFFIX,stripe.com
-DOMAIN-SUFFIX,sentry.io
-DOMAIN-SUFFIX,auth0.com
-DOMAIN-SUFFIX,events.statsigapi.net
-DOMAIN-SUFFIX,featuregates.org
-DOMAIN-SUFFIX,ingest.sentry.io
-DOMAIN-SUFFIX,identrust.com
-DOMAIN-SUFFIX,intercom.io
-DOMAIN-SUFFIX,intercomcdn.com
-
+DOMAIN-SUFFIX,chatgpt.com,gpt
+DOMAIN,ai.cn,gpt
+DOMAIN-SUFFIX,ai.com,gpt
+DOMAIN-SUFFIX,auth0.com,gpt
+DOMAIN-SUFFIX,challenges.cloudflare.com,gpt
+DOMAIN-SUFFIX,client-api.arkoselabs.com,gpt
+DOMAIN-SUFFIX,events.statsigapi.net,gpt
+DOMAIN-SUFFIX,featuregates.org,gpt
+DOMAIN-SUFFIX,oaiusercontent.com,gpt
+DOMAIN-SUFFIX,oaistatic.com,gpt
+DOMAIN-SUFFIX,identrust.com,gpt
+DOMAIN-SUFFIX,launchdarkly.com,gpt
+DOMAIN-SUFFIX,segment.io,gpt
+DOMAIN-SUFFIX,intercom.io,gpt
+DOMAIN-SUFFIX,googleapis.com,gpt
+DOMAIN-SUFFIX,intercomcdn.com,gpt
+DOMAIN-SUFFIX,poe.com,gpt
+DOMAIN-SUFFIX,sentry.io,gpt
+DOMAIN-KEYWORD,openai,gpt
 
 
