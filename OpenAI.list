@@ -18,6 +18,7 @@ DOMAIN-SUFFIX,googleapis.com,gpt
 DOMAIN-SUFFIX,intercomcdn.com,gpt
 DOMAIN-SUFFIX,poe.com,gpt
 DOMAIN-SUFFIX,sentry.io,gpt
+DOMAIN-SUFFIX,io.chat.openai.com,gpt
 DOMAIN-KEYWORD,openai,gpt
 
 
