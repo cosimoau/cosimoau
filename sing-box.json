@@ -76,21 +76,9 @@
         ],
         "outbound": "netflix"
       },
-    
-      {
-        "rule_set": "youtube",
-        "outbound": "youtube"
-      },
       {
         "rule_set": "openai",
         "outbound": "openai"
-      },
-      {
-        "rule_set": [
-          "geoip-google",
-          "geosite-google"
-        ],
-        "outbound": "google"
       },
       {
         "rule_set": [
@@ -143,20 +131,6 @@
         "download_detour": "direct"
       },
       {
-        "tag": "geoip-google",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geoip/google.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geosite-google",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geosite/google.srs",
-        "download_detour": "direct"
-      },
-      {
         "tag": "geolocation-!cn",
         "type": "remote",
         "format": "binary",
@@ -184,14 +158,6 @@
         "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/openai.srs",
         "download_detour": "direct"
       },
-  
-      {
-        "tag": "youtube",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geosite/youtube.srs",
-        "download_detour": "direct"
-      }
     ],
     "final": "final",
     "auto_detect_interface": true
@@ -212,44 +178,11 @@
         "all-auto",
         "direct"
       ],
-      "default": "all-auto"
-    },
-    {
-      "tag": "google",
-      "type": "selector",
-      "outbounds": [
-        "proxy",
-        "direct",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "uk",
-        "uk-auto",
-        "all",
-        "all-auto"
-      ],
+    
       "default": "proxy"
     },
     {
       "tag": "apple",
-      "type": "selector",
-      "outbounds": [
-        "proxy",
-        "direct",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "uk",
-        "uk-auto",
-        "all",
-        "all-auto"
-      ],
-      "default": "direct"
-    },
-    {
-      "tag": "telegram",
       "type": "selector",
       "outbounds": [
         "proxy",
@@ -272,25 +205,6 @@
       "outbounds": [
         "proxy",
         "direct",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "uk",
-        "uk-auto",
-        "all",
-        "all-auto"
-      ],
-    
-      "default": "proxy"
-    },
-    {
-      "tag": "youtube",
-      "type": "selector",
-      "outbounds": [
-        "proxy",
-        "direct",
-       
         "jp",
         "jp-auto",
         "sg",
