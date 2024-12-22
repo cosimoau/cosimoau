@@ -82,6 +82,13 @@
       },
       {
         "rule_set": [
+          "geoip-google",
+          "geosite-google"
+        ],
+        "outbound": "google"
+      },
+      {
+        "rule_set": [
           "geoip-apple",
           "geosite-apple"
         ],
@@ -129,6 +136,20 @@
         "download_detour": "direct"
       },
       {
+        "tag": "geoip-google",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geoip/google.srs",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-google",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geosite/google.srs",
+        "download_detour": "direct"
+      },
+      {
         "tag": "geolocation-!cn",
         "type": "remote",
         "format": "binary",
@@ -156,7 +177,13 @@
         "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/openai.srs",
         "download_detour": "direct"
       },
-    ],
+      {
+        "tag": "geoip-telegram",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geoip/telegram.srs",
+        "download_detour": "direct"
+      },
     "final": "final",
     "auto_detect_interface": true
   },
@@ -165,14 +192,16 @@
       "tag": "proxy",
       "type": "selector",
       "outbounds": [
-        "kr",
-        "kr-auto",
+        "hk",
+        "hk-auto",
+        "tw",
+        "tw-auto",
         "jp",
         "jp-auto",
         "sg",
         "sg-auto",
-        "uk",
-        "uk-auto",
+        "us",
+        "us-auto",
         "all",
         "all-auto",
         "direct"
@@ -180,21 +209,44 @@
       "default": "all-auto"
     },
     {
+      "tag": "google",
+      "type": "selector",
+      "outbounds": [
+        "proxy",
+        "direct",
+        "hk",
+        "hk-auto",
+        "tw",
+        "tw-auto",
+        "jp",
+        "jp-auto",
+        "sg",
+        "sg-auto",
+        "us",
+        "us-auto",
+        "all",
+        "all-auto"
+      ],
+      "default": "proxy"
+    },
+    {
       "tag": "apple",
       "type": "selector",
       "outbounds": [
         "proxy",
         "direct",
-        "kr",
-        "kr-auto",
+        "hk",
+        "hk-auto",
+        "tw",
+        "tw-auto",
         "jp",
         "jp-auto",
         "sg",
         "sg-auto",
-        "uk",
-        "uk-auto",
+        "us",
+        "us-auto",
         "all",
-        "all-auto",
+        "all-auto"
       ],
       "default": "direct"
     },
@@ -204,16 +256,18 @@
       "outbounds": [
         "proxy",
         "direct",
-       "kr",
-        "kr-auto",
+        "hk",
+        "hk-auto",
+        "tw",
+        "tw-auto",
         "jp",
         "jp-auto",
         "sg",
         "sg-auto",
-        "uk",
-        "uk-auto",
+        "us",
+        "us-auto",
         "all",
-        "all-auto",
+        "all-auto"
       ],
       "default": "proxy"
     },
@@ -223,16 +277,18 @@
       "outbounds": [
         "proxy",
         "direct",
-         "kr",
-        "kr-auto",
+        "hk",
+        "hk-auto",
+        "tw",
+        "tw-auto",
         "jp",
         "jp-auto",
         "sg",
         "sg-auto",
-        "uk",
-        "uk-auto",
+        "us",
+        "us-auto",
         "all",
-        "all-auto",
+        "all-auto"
       ],
       "default": "proxy"
     },
@@ -242,16 +298,18 @@
       "outbounds": [
         "proxy",
         "direct",
-        "kr",
-        "kr-auto",
+        "hk",
+        "hk-auto",
+        "tw",
+        "tw-auto",
         "jp",
         "jp-auto",
         "sg",
         "sg-auto",
-        "uk",
-        "uk-auto",
+        "us",
+        "us-auto",
         "all",
-        "all-auto",
+        "all-auto"
       ],
       "default": "direct"
     },
@@ -261,21 +319,28 @@
       "outbounds": [
         "proxy",
         "direct",
-       "kr",
-        "kr-auto",
+        "hk",
+        "hk-auto",
+        "tw",
+        "tw-auto",
         "jp",
         "jp-auto",
         "sg",
         "sg-auto",
-        "uk",
-        "uk-auto",
+        "us",
+        "us-auto",
         "all",
-        "all-auto",
+        "all-auto"
       ],
       "default": "proxy"
     },
     {
-      "tag": "kr",
+      "tag": "hk",
+      "type": "selector",
+      "outbounds": []
+    },
+    {
+      "tag": "tw",
       "type": "selector",
       "outbounds": []
     },
@@ -290,7 +355,7 @@
       "outbounds": []
     },
     {
-      "tag": "uk",
+      "tag": "us",
       "type": "selector",
       "outbounds": []
     },
@@ -300,7 +365,15 @@
       "outbounds": []
     },
     {
-      "tag": "kr-auto",
+      "tag": "hk-auto",
+      "type": "urltest",
+      "outbounds": [],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "1m",
+      "tolerance": 50
+    },
+    {
+      "tag": "tw-auto",
       "type": "urltest",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
@@ -324,7 +397,7 @@
       "tolerance": 50
     },
     {
-      "tag": "uk-auto",
+      "tag": "us-auto",
       "type": "urltest",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
@@ -345,16 +418,18 @@
       "outbounds": [
         "direct",
         "proxy",
-        "kr",
-        "kr-auto",
+        "hk",
+        "hk-auto",
+        "tw",
+        "tw-auto",
         "jp",
         "jp-auto",
         "sg",
         "sg-auto",
-        "uk",
-        "uk-auto",
+        "us",
+        "us-auto",
         "all",
-        "all-auto",
+        "all-auto"
       ],
       "default": "direct"
     },
