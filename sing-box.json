@@ -87,7 +87,6 @@
         ],
         "outbound": "apple"
       },
-   
       {
         "rule_set": [
           "geoip-cn",
@@ -115,7 +114,6 @@
         "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geosite/apple.srs",
         "download_detour": "direct"
       },
-     
       {
         "tag": "geoip-cn",
         "type": "remote",
@@ -167,7 +165,8 @@
       "tag": "proxy",
       "type": "selector",
       "outbounds": [
-      
+        "kr",
+        "kr-auto",
         "jp",
         "jp-auto",
         "sg",
@@ -178,8 +177,7 @@
         "all-auto",
         "direct"
       ],
-    
-      "default": "proxy"
+      "default": "all-auto"
     },
     {
       "tag": "apple",
@@ -187,6 +185,8 @@
       "outbounds": [
         "proxy",
         "direct",
+        "kr",
+        "kr-auto",
         "jp",
         "jp-auto",
         "sg",
@@ -194,17 +194,18 @@
         "uk",
         "uk-auto",
         "all",
-        "all-auto"
+        "all-auto",
       ],
-      "default": "proxy"
+      "default": "direct"
     },
-   
     {
       "tag": "netflix",
       "type": "selector",
       "outbounds": [
         "proxy",
         "direct",
+       "kr",
+        "kr-auto",
         "jp",
         "jp-auto",
         "sg",
@@ -212,7 +213,7 @@
         "uk",
         "uk-auto",
         "all",
-        "all-auto"
+        "all-auto",
       ],
       "default": "proxy"
     },
@@ -221,7 +222,9 @@
       "type": "selector",
       "outbounds": [
         "proxy",
-       
+        "direct",
+         "kr",
+        "kr-auto",
         "jp",
         "jp-auto",
         "sg",
@@ -229,7 +232,7 @@
         "uk",
         "uk-auto",
         "all",
-        "all-auto"
+        "all-auto",
       ],
       "default": "proxy"
     },
@@ -239,7 +242,8 @@
       "outbounds": [
         "proxy",
         "direct",
-       
+        "kr",
+        "kr-auto",
         "jp",
         "jp-auto",
         "sg",
@@ -247,7 +251,7 @@
         "uk",
         "uk-auto",
         "all",
-        "all-auto"
+        "all-auto",
       ],
       "default": "direct"
     },
@@ -257,6 +261,8 @@
       "outbounds": [
         "proxy",
         "direct",
+       "kr",
+        "kr-auto",
         "jp",
         "jp-auto",
         "sg",
@@ -264,11 +270,15 @@
         "uk",
         "uk-auto",
         "all",
-        "all-auto"
+        "all-auto",
       ],
       "default": "proxy"
     },
-
+    {
+      "tag": "kr",
+      "type": "selector",
+      "outbounds": []
+    },
     {
       "tag": "jp",
       "type": "selector",
@@ -289,7 +299,14 @@
       "type": "selector",
       "outbounds": []
     },
-  
+    {
+      "tag": "kr-auto",
+      "type": "urltest",
+      "outbounds": [],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "1m",
+      "tolerance": 50
+    },
     {
       "tag": "jp-auto",
       "type": "urltest",
@@ -328,7 +345,8 @@
       "outbounds": [
         "direct",
         "proxy",
-     
+        "kr",
+        "kr-auto",
         "jp",
         "jp-auto",
         "sg",
@@ -336,7 +354,7 @@
         "uk",
         "uk-auto",
         "all",
-        "all-auto"
+        "all-auto",
       ],
       "default": "direct"
     },
