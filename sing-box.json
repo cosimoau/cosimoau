@@ -36,6 +36,7 @@
         "server": "fakeip"
       },
       {
+        "inbound": "tun",
         "query_type": [
           "A",
           "AAAA"
@@ -44,11 +45,11 @@
         "rewrite_ttl": 1
       },
       {
-        "rule_set": "geosite-cn",
-        "server": "tx"
+        "rule_set": "geolocation-!cn",
+        "server": "google"
       }
     ],
-    "final": "google",
+    "final": "tx",
     "independent_cache": true
   },
   "route": {
@@ -70,40 +71,19 @@
         "outbound": "GLOBAL"
       },
       {
-        "rule_set": [
-          "geoip-netflix",
-          "geosite-netflix"
-        ],
+        "rule_set": "geoip-netflix",
         "outbound": "netflix"
-      },
-      {
-        "rule_set": "openai",
-        "outbound": "openai"
-      },
-      {
-        "rule_set": [
-          "geoip-google",
-          "geosite-google"
-        ],
-        "outbound": "google"
-      },
-      {
-        "rule_set": [
-          "geoip-apple",
-          "geosite-apple"
-        ],
-        "outbound": "apple"
-      },
-      {
-        "rule_set": [
-          "geoip-cn",
-          "geosite-cn"
-        ],
-        "outbound": "cn"
       },
       {
         "rule_set": "geolocation-!cn",
         "outbound": "proxy"
+      },
+      {
+        "inbound": [
+          "tun",
+          "mixed"
+        ],
+        "outbound": "loop"
       }
     ],
     "rule_set": [
@@ -122,20 +102,6 @@
         "download_detour": "direct"
       },
       {
-        "tag": "geoip-cn",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/cn.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geosite-cn",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs",
-        "download_detour": "direct"
-      },
-      {
         "tag": "geoip-google",
         "type": "remote",
         "format": "binary",
@@ -147,13 +113,6 @@
         "type": "remote",
         "format": "binary",
         "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geosite/google.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geolocation-!cn",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs",
         "download_detour": "direct"
       },
       {
@@ -171,12 +130,12 @@
         "download_detour": "direct"
       },
       {
-        "tag": "openai",
+        "tag": "geolocation-!cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/openai.srs",
+        "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs",
         "download_detour": "direct"
-      },
+      }
     ],
     "final": "final",
     "auto_detect_interface": true
@@ -413,10 +372,17 @@
     {
       "tag": "dns-out",
       "type": "dns"
+    },
+    {
+      "tag": "loop",
+      "type": "socks",
+      "server": "127.0.0.1",
+      "server_port": 7891
     }
   ],
   "inbounds": [
     {
+      "tag": "tun",
       "type": "tun",
       "inet4_address": "172.19.0.0/30",
       "inet6_address": "fdfe:dcba:9876::0/126",
@@ -432,10 +398,19 @@
       }
     },
     {
+      "tag": "mixed",
       "type": "mixed",
       "listen": "127.0.0.1",
       "listen_port": 7890,
       "sniff": true
+    },
+    {
+      "tag": "loop-in",
+      "type": "mixed",
+      "listen": "127.0.0.1",
+      "listen_port": 7891,
+      "sniff": true,
+      "domain_strategy": "prefer_ipv4"
     }
   ],
   "experimental": {
@@ -452,7 +427,7 @@
   },
   "log": {
     "disabled": false,
-    "level": "info",
+    "level": "debug",
     "timestamp": true
   }
 }
