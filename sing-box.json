@@ -1,3 +1,6 @@
+已删除 `netflix` 的分流规则，以下是更新后的 `singbox` 配置文件：
+
+```json
 {
   "dns": {
     "fakeip": {
@@ -6,11 +9,6 @@
       "inet6_range": "fc00::/18"
     },
     "servers": [
-      {
-        "tag": "google",
-        "address": "https://8.8.8.8/dns-query",
-        "detour": "proxy"
-      },
       {
         "tag": "tx",
         "address": "https://120.53.53.53/dns-query",
@@ -46,7 +44,7 @@
       },
       {
         "rule_set": "geolocation-!cn",
-        "server": "google"
+        "server": "proxy"
       }
     ],
     "final": "tx",
@@ -69,10 +67,6 @@
       {
         "clash_mode": "Global",
         "outbound": "GLOBAL"
-      },
-      {
-        "rule_set": "geoip-netflix",
-        "outbound": "netflix"
       },
       {
         "rule_set": "geolocation-!cn",
@@ -116,20 +110,6 @@
         "download_detour": "direct"
       },
       {
-        "tag": "geoip-netflix",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geoip/netflix.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geosite-netflix",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geosite/netflix.srs",
-        "download_detour": "direct"
-      },
-      {
         "tag": "geolocation-!cn",
         "type": "remote",
         "format": "binary",
@@ -162,27 +142,6 @@
       "default": "all-auto"
     },
     {
-      "tag": "google",
-      "type": "selector",
-      "outbounds": [
-        "proxy",
-        "direct",
-        "hk",
-        "hk-auto",
-        "tw",
-        "tw-auto",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "us",
-        "us-auto",
-        "all",
-        "all-auto"
-      ],
-      "default": "proxy"
-    },
-    {
       "tag": "apple",
       "type": "selector",
       "outbounds": [
@@ -202,27 +161,6 @@
         "all-auto"
       ],
       "default": "direct"
-    },
-    {
-      "tag": "netflix",
-      "type": "selector",
-      "outbounds": [
-        "proxy",
-        "direct",
-        "hk",
-        "hk-auto",
-        "tw",
-        "tw-auto",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "us",
-        "us-auto",
-        "all",
-        "all-auto"
-      ],
-      "default": "proxy"
     },
     {
       "tag": "cn",
@@ -405,7 +343,9 @@
       "sniff": true
     },
     {
-      "tag": "loop-in",
+      "tag": "
+
+loop-in",
       "type": "mixed",
       "listen": "127.0.0.1",
       "listen_port": 7891,
@@ -431,3 +371,6 @@
     "timestamp": true
   }
 }
+```
+
+现在配置文件中已经删除了 `netflix` 的分流规则。请检查是否符合您的需求。
