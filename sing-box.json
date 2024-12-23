@@ -266,48 +266,6 @@
       "default": "proxy"
     },
     {
-      "tag": "youtube",
-      "type": "selector",
-      "outbounds": [
-        "proxy",
-        "direct",
-        "hk",
-        "hk-auto",
-        "tw",
-        "tw-auto",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "us",
-        "us-auto",
-        "all",
-        "all-auto"
-      ],
-      "default": "proxy"
-    },
-    {
-      "tag": "openai",
-      "type": "selector",
-      "outbounds": [
-        "proxy",
-        "direct",
-        "hk",
-        "hk-auto",
-        "tw",
-        "tw-auto",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "us",
-        "us-auto",
-        "all",
-        "all-auto"
-      ],
-      "default": "proxy"
-    },
-    {
       "tag": "cn",
       "type": "selector",
       "outbounds": [
