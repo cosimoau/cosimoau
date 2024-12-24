@@ -62,10 +62,6 @@
         "outbound": "direct"
       },
       {
-        "clash_mode": "Global",
-        "outbound": "GLOBAL"
-      },
-      {
         "rule_set": "geolocation-!cn",
         "outbound": "proxy"
       },
