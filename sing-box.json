@@ -122,14 +122,6 @@
       "tag": "proxy",
       "type": "selector",
       "outbounds": [
-        "tw",
-        "tw-auto",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "us",
-        "us-auto",
         "all",
         "all-auto",
         "direct"
@@ -142,14 +134,6 @@
       "outbounds": [
         "proxy",
         "direct",
-        "tw",
-        "tw-auto",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "us",
-        "us-auto",
         "all",
         "all-auto"
       ],
@@ -161,14 +145,6 @@
       "outbounds": [
         "proxy",
         "direct",
-        "tw",
-        "tw-auto",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "us",
-        "us-auto",
         "all",
         "all-auto"
       ],
@@ -180,75 +156,15 @@
       "outbounds": [
         "proxy",
         "direct",
-        "tw",
-        "tw-auto",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "us",
-        "us-auto",
         "all",
         "all-auto"
       ],
       "default": "proxy"
     },
     {
-      "tag": "tw",
-      "type": "selector",
-      "outbounds": []
-    },
-    {
-      "tag": "jp",
-      "type": "selector",
-      "outbounds": []
-    },
-    {
-      "tag": "sg",
-      "type": "selector",
-      "outbounds": []
-    },
-    {
-      "tag": "us",
-      "type": "selector",
-      "outbounds": []
-    },
-    {
       "tag": "all",
       "type": "selector",
       "outbounds": []
-    },
-    {
-      "tag": "tw-auto",
-      "type": "urltest",
-      "outbounds": [],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "1m",
-      "tolerance": 50
-    },
-    {
-      "tag": "jp-auto",
-      "type": "urltest",
-      "outbounds": [],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "1m",
-      "tolerance": 50
-    },
-    {
-      "tag": "sg-auto",
-      "type": "urltest",
-      "outbounds": [],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "1m",
-      "tolerance": 50
-    },
-    {
-      "tag": "us-auto",
-      "type": "urltest",
-      "outbounds": [],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "1m",
-      "tolerance": 50
     },
     {
       "tag": "all-auto",
@@ -264,14 +180,6 @@
       "outbounds": [
         "direct",
         "proxy",
-        "tw",
-        "tw-auto",
-        "jp",
-        "jp-auto",
-        "sg",
-        "sg-auto",
-        "us",
-        "us-auto",
         "all",
         "all-auto"
       ],
