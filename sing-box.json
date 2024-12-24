@@ -119,13 +119,13 @@
   },
   "outbounds": [
     {
-      "tag": "PROXY",
+      "tag": "proxy",
       "type": "selector",
       "outbounds": [],
     },
    
     {
-      "tag": "FINAL",
+      "tag": "final",
       "type": "selector",
       "outbounds": [],
     },
