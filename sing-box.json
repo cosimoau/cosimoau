@@ -7,6 +7,11 @@
     },
     "servers": [
       {
+        "tag": "google",
+        "address": "https://8.8.8.8/dns-query",
+        "detour": "proxy"
+      },
+      {
         "tag": "tx",
         "address": "https://120.53.53.53/dns-query",
         "detour": "direct"
@@ -31,7 +36,6 @@
         "server": "fakeip"
       },
       {
-        "inbound": "tun",
         "query_type": [
           "A",
           "AAAA"
@@ -40,11 +44,11 @@
         "rewrite_ttl": 1
       },
       {
-        "rule_set": "geolocation-!cn",
-        "server": "proxy"
+        "rule_set": "geosite-cn",
+        "server": "tx"
       }
     ],
-    "final": "tx",
+    "final": "google",
     "independent_cache": true
   },
   "route": {
@@ -64,50 +68,6 @@
       {
         "rule_set": "geolocation-!cn",
         "outbound": "proxy"
-      },
-      {
-        "inbound": [
-          "tun",
-          "mixed"
-        ],
-        "outbound": "loop"
-      }
-    ],
-    "rule_set": [
-      {
-        "tag": "geoip-apple",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geoip/apple.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geosite-apple",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geosite/apple.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geoip-google",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geoip/google.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geosite-google",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo-lite/geosite/google.srs",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "geolocation-!cn",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs",
-        "download_detour": "direct"
       }
     ],
     "final": "final",
@@ -117,13 +77,32 @@
     {
       "tag": "proxy",
       "type": "selector",
-      "outbounds": [],
+      "outbounds": [
+        "proxy",
+        "direct",
+        "hk",
+        "tw",
+        "jp",
+        "sg",
+        "us",
+        "all"
+      ],
+      "default": "all"
     },
-   
     {
       "tag": "final",
       "type": "selector",
-      "outbounds": [],
+      "outbounds": [
+        "proxy",
+        "direct",
+        "hk",
+        "tw",
+        "jp",
+        "sg",
+        "us",
+        "all"
+      ],
+      "default": "proxy"
     },
     {
       "tag": "direct",
@@ -132,17 +111,10 @@
     {
       "tag": "dns-out",
       "type": "dns"
-    },
-    {
-      "tag": "loop",
-      "type": "socks",
-      "server": "127.0.0.1",
-      "server_port": 7891
     }
   ],
   "inbounds": [
     {
-      "tag": "tun",
       "type": "tun",
       "inet4_address": "172.19.0.0/30",
       "inet6_address": "fdfe:dcba:9876::0/126",
@@ -158,19 +130,10 @@
       }
     },
     {
-      "tag": "mixed",
       "type": "mixed",
       "listen": "127.0.0.1",
       "listen_port": 7890,
       "sniff": true
-    },
-    {
-      "tag": "loop-in",
-      "type": "mixed",
-      "listen": "127.0.0.1",
-      "listen_port": 7891,
-      "sniff": true,
-      "domain_strategy": "prefer_ipv4"
     }
   ],
   "experimental": {
@@ -187,7 +150,7 @@
   },
   "log": {
     "disabled": false,
-    "level": "debug",
+    "level": "info",
     "timestamp": true
   }
 }
