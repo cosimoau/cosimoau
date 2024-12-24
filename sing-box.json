@@ -9,7 +9,7 @@
     "clash_api": {
       "external_controller": "0.0.0.0:9095",
       "external_ui": "/etc/sing-box/ui",
-      "secret": "your_secret_key",  // 设置 API 密钥
+      "secret": "",  // 设置 API 密钥
       "external_ui_download_url": "https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
       "external_ui_download_detour": "🚀 节点选择",
       "default_mode": "rule"
