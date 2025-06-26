@@ -1,5 +1,5 @@
-DOMAIN-KEYWORD,etnet
-DOMAIN-KEYWORD,aastocks
-DOMAIN-KEYWORD,bochk
-DOMAIN-SUFFIX,hsbc.com.hk
-DOMAIN-SUFFIX,now.com
+DOMAIN-KEYWORD,etnet,Proxy
+DOMAIN-KEYWORD,aastocks,Proxy
+DOMAIN-KEYWORD,bochk,Proxy
+DOMAIN-SUFFIX,hsbc.com.hk,Proxy
+DOMAIN-SUFFIX,now.com,Proxy
