@@ -6,6 +6,4 @@ DOMAIN-SUFFIX,etnet.com.hk,Proxy
 DOMAIN-SUFFIX,theinitium.com,Proxy
 DOMAIN-SUFFIX,hk01.com,Proxy
 
-DOMAIN,login.microsoftonline.com,Proxy
-DOMAIN,xrytg-my.sharepoint.com,Proxy
-DOMAIN,my.microsoftpersonalcontent.com,Proxy
+
