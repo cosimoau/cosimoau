@@ -12,12 +12,3 @@ DOMAIN-SUFFIX,ibkrgateway.com,Proxy
 DOMAIN-SUFFIX,ibcontroller.com,Proxy
 DOMAIN-SUFFIX,interactivebrokers.github.io,Proxy
 
-
-
-# Charles Schwab
-DOMAIN-SUFFIX,schwab.com,Proxy
-DOMAIN-SUFFIX,schwab.cn,Proxy
-DOMAIN-SUFFIX,schwabclient.com,Proxy
-DOMAIN-SUFFIX,sbdirect.com,Proxy
-DOMAIN-SUFFIX,mobile-schwab.com,Proxy
-DOMAIN-KEYWORD,schwab,Proxy
