@@ -1,0 +1,14 @@
+# 盈透证券 Interactive Brokers
+DOMAIN-SUFFIX,interactivebrokers.com,Proxy
+DOMAIN-SUFFIX,interactivebrokers.com.hk,Proxy
+DOMAIN-SUFFIX,interactivebrokers.co.uk,Proxy
+DOMAIN-SUFFIX,interactivebrokers.ca,Proxy
+DOMAIN-SUFFIX,interactivebrokers.com.au,Proxy
+DOMAIN-SUFFIX,ibkr.com,Proxy
+DOMAIN-SUFFIX,ibkr.com.cn,DIRECT
+DOMAIN-SUFFIX,ibtws.com,Proxy
+DOMAIN-SUFFIX,ibkrcampus.com,Proxy
+DOMAIN-SUFFIX,ibkrgateway.com,Proxy
+DOMAIN-SUFFIX,ibcontroller.com,Proxy
+DOMAIN-SUFFIX,interactivebrokers.github.io,Proxy
+
